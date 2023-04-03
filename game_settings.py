@@ -20,9 +20,9 @@ class GameSettings:
 
         #Font
 
-        self.start_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',26)
-        self.game_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',20)
-        self.game_over_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',30)
+        self.start_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',40)
+        self.game_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',40)
+        self.game_over_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',40)
 
         #background
 

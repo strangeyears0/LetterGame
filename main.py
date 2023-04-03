@@ -18,16 +18,16 @@ class Score:
 
         score_font = self.settings.game_font
         score_text = score_font.render(f"Score: {self.score}", True, (255, 255, 255))
-        score_rect = score_text.get_rect(topright=(self.settings.screen_width - 100, 10))
+        score_rect = score_text.get_rect(topright=(self.settings.screen_width - 100, 20))
         self.screen.blit(score_text, score_rect)
 
         level_font = self.settings.game_font
         level_text = level_font.render(f"Level: {self.level}",True, (255, 255, 255))
-        level_rect = level_text.get_rect(midtop=(self.settings.screen_width / 2, 10))
+        level_rect = level_text.get_rect(midtop=(self.settings.screen_width / 2, 20))
         self.screen.blit(level_text,level_rect)
 
     def update_level(self):
-        if self.score % 200 == 0 and self.score != 0:
+        if self.score % 10 == 0 and self.score != 0:
             self.level += 1
             self.settings.falling_speed += self.settings.next_level_speed
 
@@ -41,7 +41,7 @@ class Lives:
     def draw(self):
         life_font = self.settings.game_font
         life_text = life_font.render(f"Lives: {self.lives}", True, (255,255,255))
-        life_rect = life_text.get_rect(topleft=(100,10))
+        life_rect = life_text.get_rect(topleft=(100,20))
         self.screen.blit(life_text,life_rect)
 
     def decrease(self):
