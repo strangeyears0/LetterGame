@@ -10,5 +10,5 @@ even for commercial purposes, all without asking permission: http://creativecomm
 Get more resources at ansimuz.com, Spread the word!
 
 
-<a href="https://pl.freepik.com/darmowe-wektory/
-plaski-kwiatowy-alfabet_3948684.htm#&position=0&from_view=undefined">Freepik</a>
+https://pl.freepik.com/darmowe-wektory/
+plaski-kwiatowy-alfabet_3948684.htm#&position=0&from_view=undefined
