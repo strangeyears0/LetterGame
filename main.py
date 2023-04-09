@@ -70,6 +70,8 @@ class FallingLetter(pygame.sprite.Sprite):
         else:
             return False
 
+
+
 class Game:
     """Class responsible for game logic."""
 
@@ -90,16 +92,26 @@ class Game:
         self.score = Score(self.settings,self.screen)
         self.lives = Lives(self.settings, self.screen)
 
+
+
+
     def start_game(self):
 
         font = self.settings.start_font
-        logo = font.render("Letter Game", True, (0,190,190))
-        logo_rect = logo.get_rect(center=(400,150))
+        logo = font.render("Letter Game", True, (255,255,125))
+        logo_rect = logo.get_rect(center=(512,300))
         text = font.render("Press SPACE to START",True,(255,255,255))
         text_rect = text.get_rect(center=self.screen.get_rect().center)
         self.screen.blit(text,text_rect)
         self.screen.blit(logo, logo_rect)
         pygame.display.update()
+        pygame.mixer.pre_init(44100, 16, 2, 4096)
+        audio = pygame.mixer.Sound('audio/forrest.mp3')
+        audio.set_volume(0.5)
+        audio.play(loops = -1)
+
+
+
 
 
         while True:
@@ -136,9 +148,11 @@ class Game:
             for letter in self.falling_letters:
                 if letter.rect.y >= 0:
                     count +=1
-
+            letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+                       'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+                       'U', 'W', 'X', 'Y', 'Z']
             if count < 4 and random.randint(0,100) < 3 :
-                letter = FallingLetter(random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ'), self.settings,self.alphabet)
+                letter = FallingLetter(random.choice(letters), self.settings,self.alphabet)
 
                 same_letters = [l for l in self.falling_letters if l.image == letter.image]
 
@@ -157,28 +171,28 @@ class Game:
             self.clock.tick(self.settings.max_frame)
 
     def game_over(self):
-        # Game over screen.
+
         self.screen.fill((0, 0, 0))
-        # Game over text.
+
         font = self.settings.start_font
         game_over = font.render('GAME OVER', True, (255, 0, 0))
-        game_over_rect = game_over.get_rect(center=(400, 250))
+        game_over_rect = game_over.get_rect(center=(512, 250))
         self.screen.blit(game_over, game_over_rect)
-        # Final score.
+
         final_score = font.render(f'Your score: {self.score.score}', True, (255, 255, 255))
         final_score_rect = final_score.get_rect(center=self.screen.get_rect().center)
         self.screen.blit(final_score, final_score_rect)
-        # Information about press space to continue.
+
         game_continue = font.render('Press SPACE to CONTINUE', True, (255, 255, 255))
-        game_continue_rect = game_continue.get_rect(center=(400, 450))
+        game_continue_rect = game_continue.get_rect(center=(512, 450))
         self.screen.blit(game_continue, game_continue_rect)
         pygame.display.update()
 
-        # Wait for space key to be pressed for restart game.
+
         while True:
             event = pygame.event.wait()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                self.__init__()  # Restart the game
+                self.__init__()
                 self.run_game()
             elif event.type == pygame.QUIT:
                 pygame.quit()

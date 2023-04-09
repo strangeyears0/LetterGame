@@ -5,25 +5,27 @@ class GameSettings:
 
     def __init__(self):
 
-        #Screen
-        self.screen_width = 800
-        self.screen_height = 600
+
+        self.screen_width = 1024
+        self.screen_height = 800
         self.screen_title = 'Letter Game'
 
-        #Game Setings
 
-        self.max_frame = 30
+
+        self.max_frame = 25
         self.falling_speed = 5
         self.next_level_speed = 1.5
         self.points = 1
         self.lives = 3
 
-        #Font
 
-        self.start_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',40)
-        self.game_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',40)
-        self.game_over_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',40)
+
+        self.start_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',60)
+        self.game_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',58)
+        self.game_over_font = pygame.font.Font('graphics/font/AmaticSC-Regular.ttf',60)
 
         #background
 
         self.background = pygame.image.load('graphics/parallax-forest.png')
+
+

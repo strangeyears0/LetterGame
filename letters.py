@@ -5,10 +5,13 @@ class Alphabet:
     """Change letter into png letter"""
     def __init__(self):
         self.alphabet_images = {}
-        for letter in 'ABCDEFGHIJKLMNOPQRSTUWXYZ':
+        letters=['A','B','C','D','E','F','G','H','I','J',
+                 'K','L','M','N','O','P','Q','R','S','T',
+                 'U','W','X','Y','Z']
+        for letter in letters:
             filename = f"graphics/letters/{letter}.png"
             image = pygame.image.load(filename)
-            # Change size images
+
             image = pygame.transform.scale(image,(image.get_width() // 1, image.get_height() // 1))
             self.alphabet_images[letter] = image
 
